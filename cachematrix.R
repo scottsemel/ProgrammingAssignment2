@@ -21,11 +21,11 @@ A = matrix(c(2, 4, 3, 1, 5, 7, 6, 5, 4),nrow=3,ncol=3)
 ## This function turns a matrix into a list of functions
 
 makeCacheMatrix <- function(x = matrix()) {
-        m <- NULL
+        i <- NULL
         ## set just saves the value and clears m
         set <- function(y) {
                 x <<- y
-                m <<- NULL
+                i <<- NULL
         }
         ## get is a function with no arguments and just returns x
         get <- function() x
@@ -68,7 +68,13 @@ cacheSolve <- function(x, ...) {
 }
 
 # test example
+#
 mat = makeCacheMatrix(A)
 cacheSolve(mat)
-
+#           [,1]       [,2]       [,3]
+#[1,] -0.3191489  0.8085106 -0.5319149
+#[2,] -0.0212766 -0.2127660  0.2978723
+#[3,]  0.2765957 -0.2340426  0.1276596
+#
+# It works.
 
